@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GS엘리베이터</title>
+    <link rel="stylesheet" href="./assets/library/aos/aos.css">
+    <link rel="stylesheet" href="./assets/library/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./assets/css/mobile.css">
+    <script src="./assets/library/jquery/jquery-3.7.0.min.js"></script>
+    <script src="./assets/library/aos/aos.js"></script>
+    <script src="./assets/library/swiper/swiper-bundle.min.js"></script>
+</head>
+<body class="mo">
+    <div class="mobile">
+        <div class="mobile__mockup"></div>
+        <div class="mo-content">
+            <div class="mobox">
+                <img src="./assets/images/m/Mobile.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <script>
+        AOS.init({
+            duration: 1000,
+            offset: 0,
+        });
+        $(function () {
+            $(window).on('load', function () {
+                AOS.refresh();
+            });
+        });
+    </script>
+</body>
+</html>

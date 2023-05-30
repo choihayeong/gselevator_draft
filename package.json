@@ -1,0 +1,24 @@
+{
+  "name": "gselevator_draft",
+  "version": "1.0.0",
+  "description": "gselevator_draft",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choihayeong/gselevator_draft.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/choihayeong/gselevator_draft/issues"
+  },
+  "homepage": "https://github.com/choihayeong/gselevator_draft#readme",
+  "dependencies": {
+    "aos": "^3.0.0-beta.6",
+    "swiper": "^9.3.2"
+  }
+}

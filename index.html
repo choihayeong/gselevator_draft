@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GS엘리베이터</title>
+    <link rel="stylesheet" href="./assets/library/aos/aos.css">
+    <link rel="stylesheet" href="./assets/library/swiper/swiper-bundle.min.css">
+    <!-- <link rel="stylesheet" href="./assets/library/locomotive-scroll/locomotive-scroll.min.css"> -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/library/jquery/jquery-3.7.0.min.js"></script>
+    <script src="./assets/library/aos/aos.js"></script>
+    <!-- <script src="./assets/library/locomotive-scroll/locomotive-scroll.min.js"></script> -->
+    <script src="./assets/library/swiper/swiper-bundle.min.js"></script>
+    <script src="./assets/script/common.js"></script>
+</head>
+<body> 
+    <div class="wrap" data-scroll-container>
+        <div class="loading">
+            <div class="loading__panel loading__panel--left">
+                <span>Look</span>
+            </div>
+            <div class="loading__panel loading__panel--right">
+                <span>Intro</span>
+            </div>
+        </div>
+        <!-- header -->
+        <header id="header" class="header">
+            <div class="header__wrap">
+                <div class="header__inner">
+                    <div class="gnb gnb__left">
+                        <img src="./assets/images/gnb01.jpg" alt="">
+                    </div>
+                    <h1 class="logo" onclick="location.href='./index.html'">
+                        <img src="./assets/images/logo.svg" alt="">
+                    </h1>
+                    <div class="gnb gnb__right">
+                        <img src="./assets/images/gnb02.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- // -->
+        <main id="main" class="main" data-scroll-container>
+            <!-- KEY VISUAL -->
+            <section class="section main-visual">
+                <div class="main-visual__bg">
+                    <div class="swiper-wrapper">
+                        <div class="main-visual__item swiper-slide" style="background-image:url(./assets/images/img01.jpg)">
+                            <div class="main-visual__contents">
+                                <div>
+                                    <img src="./assets/images/text01.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-visual__item swiper-slide" style="background-image:url(./assets/images/img02.jpg)">
+                            <div class="main-visual__contents">
+                                <div>
+                                    <img src="./assets/images/text02.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-visual__item swiper-slide" style="background-image:url(./assets/images/img03.jpg)">
+                            <div class="main-visual__contents">
+                                <div>
+                                    <img src="./assets/images/text03.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-visual__bottom">
+                    <div class="main-visual__call">
+                        <img src="./assets/images/call.png" alt="">
+                    </div>
+                    <div class="pager">
+                        <div class="pager__current">1</div>
+                        <div class="pager__progress">
+                            <div class="pager__percent"></div>
+                        </div>
+                        <div class="pager__full">6</div>
+                    </div>
+                    <div class="preview">
+                        
+                    </div>
+                </div>
+            </section>
+            <!-- // -->
+            <!-- ELEVATOR -->
+            <section class="section floor main-elevator">
+                <div class="floor__inner">
+                    <div class="floor__heading">
+                        <div class="floor__num">1</div>
+                        <div class="floor__title">엘리베이터</div>
+                    </div>
+                    <div class="floor__content">
+                        <h2 class="floor__slogan">
+                            <span>Premium</span>
+                            <span>GS elevator</span>
+                        </h2>
+                        <div class="floor__description">초고속 프리미엄 엘리베이터는 빌딩의 수직 성장에 걸맞는 제품을 설계합니다</div>
+                    </div>
+                    <figure class="floor__visual">
+                        <img src="./assets/images/img04.jpg" alt="">
+                    </figure>
+                    <button type="button" class="btn-more">MORE</button>
+                    <div class="floor__buttons">
+                        <button type="button" class="btn-arrow btn-arrow--up"></button>
+                        <button type="button" class="btn-arrow btn-arrow--down"></button>
+                    </div>
+                </div>
+                <aside class="floor__bg"></aside>
+                <article class="main-elevator__contents">
+                    <div class="row">
+                        <div class="elevator-type">
+                            <div class="elevator-type__heading">
+                                <h3 class="elevator-type__title">type of elevator</h3>
+                                <button type="button" class="btn-more" style="margin-top:0;">MORE</button>
+                            </div>
+                            <div class="elevator-type__list">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/img05.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/img06.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/img07.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/img08.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!-- // -->
+            <!-- INSTALLATION -->
+            <section class="section floor main-installation">
+                <div class="floor__inner floor__inner--dark">
+                    <div class="floor__heading">
+                        <div class="floor__num">2</div>
+                        <div class="floor__title">설치&교체공사</div>
+                    </div>
+                    <div class="floor__content">
+                        <h2 class="floor__slogan">
+                            <span>installation &</span>
+                            <span>replacement</span>
+                        </h2>
+                        <div class="floor__description">편안함을 보장하고 안전을 위해 엘리베이터 시스템의 현대화를 추구합니다</div>
+                    </div>
+                    <figure class="floor__visual">
+                        <img src="./assets/images/img09.jpg" alt="">
+                    </figure>
+                    <button type="button" class="btn-more">MORE</button>
+                    <div class="floor__buttons">
+                        <button type="button" class="btn-arrow btn-arrow--dark btn-arrow--up"></button>
+                        <button type="button" class="btn-arrow btn-arrow--dark btn-arrow--down"></button>
+                    </div>
+                </div>
+                <aside class="floor__bg"></aside>
+            </section>
+            <!-- // -->
+            <!-- MAINTENANCE -->
+            <section class="section floor main-maintenance">
+                <div class="floor__inner">
+                    <div class="floor__heading">
+                        <div class="floor__num">3</div>
+                        <div class="floor__title">유지보수 서비스</div>
+                    </div>
+                    <div class="floor__content">
+                        <h2 class="floor__slogan">
+                            <span>maintenance</span>
+                            <span>Service</span>
+                        </h2>
+                        <div class="floor__description">안전을 최우선으로 하는 최첨단 원격관리 서비스와 고객 맞춤형 유지관리를 제공합니다</div>
+                    </div>
+                    <figure class="floor__visual">
+                        <img src="./assets/images/img10.jpg" alt="">
+                    </figure>
+                    <button type="button" class="btn-more">MORE</button>
+                    <div class="floor__buttons">
+                        <button type="button" class="btn-arrow btn-arrow--up"></button>
+                        <button type="button" class="btn-arrow btn-arrow--down"></button>
+                    </div>
+                </div>
+                <aside class="floor__bg"></aside>
+            </section>
+            <!-- // -->
+            <!-- TECH -->
+            <section class="section main-tech">
+                <h2 style="text-align:center">
+                    <img src="./assets/images/text04.png" alt="">
+                </h2>
+                <div class="row">
+                    <div class="main-tech__slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="./assets/images/img11.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./assets/images/img12.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./assets/images/img13.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- // -->
+            <!-- PRESS -->
+            <section class="section main-press">
+                <h2 style="text-align:center">
+                    <img src="./assets/images/text05.png" alt="">
+                </h2>
+                <div class="row">
+                    <ul class="main-press__list">
+                        <li>
+                            <img src="./assets/images/img14.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="./assets/images/img15.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="./assets/images/img16.jpg" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- // -->
+            <!-- bottom -->
+            <aside class="main-bottom">
+                <div class="row">
+                    <ul class="main-bottom__list">
+                        <li>
+                            <div class="main-bottom__item">
+                                <figure class="main-bottom__visual">
+                                    <img src="./assets/images/img17.jpg" alt="">
+                                </figure>
+                                <div class="main-bottom__contents">
+                                    <img src="./assets/images/text06.png" alt="">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="main-bottom__item">
+                                <figure class="main-bottom__visual">
+                                    <img src="./assets/images/img18.jpg" alt="">
+                                </figure>
+                                <div class="main-bottom__contents">
+                                    <img src="./assets/images/text06.png" alt="">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <!-- // -->
+        </main>
+        <!-- footer -->
+        <footer id="footer" class="footer">
+            <img src="./assets/images/footer.jpg" alt="">
+        </footer>
+        <!-- // -->
+    </div>
+    <script>
+        $(function() {
+            // INTRO
+            setTimeout(function() {
+                $('.loading').addClass('on');
+            }, 300)
+            // kvSwiper
+            const kvSwiper = new Swiper('.main-visual__bg', {
+                effect:'fade',
+                loop:true,
+                pagination: {
+                    el: '.main-visual__indicator'
+                },
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false
+                },
+            })
+            // type of elevator
+            const teSwiper = new Swiper('.elevator-type__list', {
+                slidesPerView:'auto',
+                spaceBetween:35,
+                loop:true,
+            })
+            // tech slider
+            const techSwiper = new Swiper('.main-tech__slider', {
+                effect:'fade',
+                loop:true,
+            })
+        })
+    </script>
+</body>
+</html>

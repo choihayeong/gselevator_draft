@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/* Pretendard */
+@font-face {
+	font-family:'Pretendard';
+	font-weight:100;
+	src:
+        local(※), /* IE fix */
+        url(../fonts/Pretendard/Pretendard-Thin.woff2) format('woff2'),
+        url(../fonts/Pretendard/Pretendard-Thin.woff) format('woff');
+}
+@font-face {
+	font-family:'Pretendard';
+	font-weight:300;
+	src:
+        local(※), /* IE fix */
+        url(../fonts/Pretendard/Pretendard-Light.woff2) format('woff2'),
+        url(../fonts/Pretendard/Pretendard-Light.woff) format('woff');
+}
+@font-face {
+	font-family:'Pretendard';
+	font-weight:400;
+	src:
+        local(※), /* IE fix */
+        url(../fonts/Pretendard/Pretendard-Regular.woff2) format('woff2'),
+        url(../fonts/Pretendard/Pretendard-Regular.woff) format('woff');
+}
+@font-face {
+	font-family:'Pretendard';
+	font-weight:500;
+	src:
+        local(※), /* IE fix */
+        url(../fonts/Pretendard/Pretendard-Medium.woff2) format('woff2'),
+        url(../fonts/Pretendard/Pretendard-Medium.woff) format('woff');
+}
+@font-face {
+	font-family:'Pretendard';
+	font-weight:700;
+	src:
+        local(※), /* IE fix */
+        url(../fonts/Pretendard/Pretendard-Bold.woff2) format('woff2'),
+        url(../fonts/Pretendard/Pretendard-Bold.woff) format('woff');
+}
+/* Oswald */
+@font-face {
+	font-family:'Oswald';
+	font-weight:300;
+	src:
+        local(※), /* IE fix */
+        url(../fonts/Oswald/Oswald-Light.woff) format('woff');
+}
+@font-face {
+	font-family:'Oswald';
+	font-weight:400;
+	src:
+        local(※), /* IE fix */
+        url(../fonts/Oswald/Oswald-Regular.woff) format('woff');
+}
+@font-face {
+	font-family:'Oswald';
+	font-weight:500;
+	src:
+        local(※), /* IE fix */
+        url(../fonts/Oswald/Oswald-Medium.woff) format('woff');
+}
+@font-face {
+	font-family:'Oswald';
+	font-weight:700;
+	src:
+        local(※), /* IE fix */
+        url(../fonts/Oswald/Oswald-Bold.woff) format('woff');
+}

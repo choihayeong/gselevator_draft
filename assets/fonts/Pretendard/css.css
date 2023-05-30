@@ -1,0 +1,73 @@
+@charset "UTF-8";
+@font-face {
+	font-family:'Pretendard';
+	font-weight:100;
+	src:
+		local(※), /* IE fix */
+		url(../../font/Pretendard/Pretendard-Thin.woff2) format('woff2'),
+		url(../../font/Pretendard/Pretendard-Thin.woff) format('woff');
+}
+@font-face {
+	font-family:'Pretendard';
+	font-weight:200;
+	src:
+		local(※), /* IE fix */
+		url(../../font/Pretendard/Pretendard-ExtraLight.woff2) format('woff2'),
+		url(../../font/Pretendard/Pretendard-ExtraLight.woff) format('woff');
+}
+@font-face {
+	font-family:'Pretendard';
+	font-weight:300;
+	src:
+		local(※), /* IE fix */
+		url(../../font/Pretendard/Pretendard-Light.woff2) format('woff2'),
+		url(../../font/Pretendard/Pretendard-Light.woff) format('woff');
+}
+@font-face {
+	font-family:'Pretendard';
+	font-weight:400;
+	src:
+		local(※), /* IE fix */
+		url(../../font/Pretendard/Pretendard-Regular.woff2) format('woff2'),
+		url(../../font/Pretendard/Pretendard-Regular.woff) format('woff');
+}
+@font-face {
+	font-family:'Pretendard';
+	font-weight:500;
+	src:
+		local(※), /* IE fix */
+		url(../../font/Pretendard/Pretendard-Medium.woff2) format('woff2'),
+		url(../../font/Pretendard/Pretendard-Medium.woff) format('woff');
+}
+@font-face {
+	font-family:'Pretendard';
+	font-weight:600;
+	src:
+		local(※), /* IE fix */
+		url(../../font/Pretendard/Pretendard-SemiBold.woff2) format('woff2'),
+		url(../../font/Pretendard/Pretendard-SemiBold.woff) format('woff');
+}
+@font-face {
+	font-family:'Pretendard';
+	font-weight:700;
+	src:
+		local(※), /* IE fix */
+		url(../../font/Pretendard/Pretendard-Bold.woff2) format('woff2'),
+		url(../../font/Pretendard/Pretendard-Bold.woff) format('woff');
+}
+@font-face {
+	font-family:'Pretendard';
+	font-weight:800;
+	src:
+		local(※), /* IE fix */
+		url(../../font/Pretendard/Pretendard-ExtraBold.woff2) format('woff2'),
+		url(../../font/Pretendard/Pretendard-ExtraBold.woff) format('woff');
+}
+@font-face {
+	font-family:'Pretendard';
+	font-weight:900;
+	src:
+		local(※), /* IE fix */
+		url(../../font/Pretendard/Pretendard-Black.woff2) format('woff2'),
+		url(../../font/Pretendard/Pretendard-Black.woff) format('woff');
+}
