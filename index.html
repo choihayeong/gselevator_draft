@@ -75,15 +75,20 @@
                         <img src="./assets/images/call.png" alt="">
                     </div>
                     <div class="pager">
-                        <div class="pager__current">1</div>
-                        <div class="pager__progress">
-                            <div class="pager__percent"></div>
-                        </div>
-                        <div class="pager__full">6</div>
+                        <span class="pager__current">1</span>
+                        <span class="pager__progress">
+                            <span class="pager__percent"></span>
+                        </span>
+                        <span class="pager__full">6</span>
                     </div>
-                    <div class="preview">
-                        
-                    </div>
+                    <ul class="preview">
+                        <li>01</li>
+                        <li>02</li>
+                        <li>03</li>
+                        <li>04</li>
+                        <li>05</li>
+                        <li>06</li>
+                    </ul>
                 </div>
             </section>
             <!-- // -->
@@ -102,7 +107,9 @@
                         <div class="floor__description">초고속 프리미엄 엘리베이터는 빌딩의 수직 성장에 걸맞는 제품을 설계합니다</div>
                     </div>
                     <figure class="floor__visual">
-                        <img src="./assets/images/img04.jpg" alt="">
+                        <span>
+                            <img src="./assets/images/img04.jpg" alt="" style="transform:scale(1.5);">
+                        </span>
                     </figure>
                     <button type="button" class="btn-more">MORE</button>
                     <div class="floor__buttons">
@@ -110,7 +117,7 @@
                         <button type="button" class="btn-arrow btn-arrow--down"></button>
                     </div>
                 </div>
-                <aside class="floor__bg"></aside>
+                <aside class="floor__bg" style="background-image:url(./assets/images/img04.jpg)"></aside>
                 <article class="main-elevator__contents">
                     <div class="row">
                         <div class="elevator-type">
@@ -162,7 +169,7 @@
                         <button type="button" class="btn-arrow btn-arrow--dark btn-arrow--down"></button>
                     </div>
                 </div>
-                <aside class="floor__bg"></aside>
+                <aside class="floor__bg" style="background-image:url(./assets/images/img19.jpg)"></aside>
             </section>
             <!-- // -->
             <!-- MAINTENANCE -->
@@ -188,7 +195,7 @@
                         <button type="button" class="btn-arrow btn-arrow--down"></button>
                     </div>
                 </div>
-                <aside class="floor__bg"></aside>
+                <aside class="floor__bg" style="background-image:url(./assets/images/img20.jpg);"></aside>
             </section>
             <!-- // -->
             <!-- TECH -->
@@ -270,6 +277,73 @@
     </div>
     <script>
         $(function() {
+            // header
+            var didScroll;
+            var lastScrollTop = 0;
+            var delta = 5;
+            var navbarHeight = $('.header').outerHeight();
+            const wh = $(window).innerHeight(), ww = $(window).innerWidth();
+            const evBgTop = $('.main-elevator .floor__bg').offset().top;
+
+            $(window).scroll(function(event){
+                didScroll = true;
+                let scTop = $(this).scrollTop();
+                let increVal = scTop - (evBgTop - wh);
+                let treshold = 0;
+                let scaleVal = 0;
+
+                /*if (scTop >= evBgTop - wh) {
+                    $('.main-elevator').addClass('on');
+
+                    if (increVal * 2 + 450 <= 1920) {
+                        $('.floor__visual span').css('width',`calc(450px + ${increVal * 2}px)`);
+                    } else {
+                        $('.floor__visual span').css('width',`1920px`);
+                    }
+
+                    // if () {
+                    //     $('.floor__visual span img').css('transform',`scale(1.5 - ${0})`);
+                    // } else {
+
+                    // }
+                    
+                } else {
+                    $('.main-elevator').removeClass('on');
+                } */
+
+
+
+            });
+
+            setInterval(function() {
+                if (didScroll) {
+                    hasScrolled();
+                    didScroll = false;
+                }
+            }, 250);
+
+            function hasScrolled() {
+                var st = $(this).scrollTop();
+                
+                // Make sure they scroll more than delta
+                if(Math.abs(lastScrollTop - st) <= delta)
+                    return;
+                
+                // If they scrolled down and are past the navbar, add class .nav-up.
+                // This is necessary so you never see what is "behind" the navbar.
+                if (st > lastScrollTop && st > navbarHeight){
+                    // Scroll Down
+                    $('header').removeClass('nav-down').addClass('nav-up');
+                } else {
+                    // Scroll Up
+                    if(st + $(window).height() < $(document).height()) {
+                        $('header').removeClass('nav-up').addClass('nav-down');
+                    }
+                }
+                
+                lastScrollTop = st;
+            }
+
             // INTRO
             setTimeout(function() {
                 $('.loading').addClass('on');
