@@ -7,11 +7,11 @@
     <title>GS엘리베이터</title>
     <link rel="stylesheet" href="./assets/library/aos/aos.css">
     <link rel="stylesheet" href="./assets/library/swiper/swiper-bundle.min.css">
-    <!-- <link rel="stylesheet" href="./assets/library/locomotive-scroll/locomotive-scroll.min.css"> -->
+    <link rel="stylesheet" href="./assets/library/locomotive-scroll/locomotive-scroll.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/library/jquery/jquery-3.7.0.min.js"></script>
     <script src="./assets/library/aos/aos.js"></script>
-    <!-- <script src="./assets/library/locomotive-scroll/locomotive-scroll.min.js"></script> -->
+    <script src="./assets/library/locomotive-scroll/locomotive-scroll.min.js"></script>
     <script src="./assets/library/swiper/swiper-bundle.min.js"></script>
     <script src="./assets/script/common.js"></script>
 </head>
@@ -108,13 +108,21 @@
                     </div>
                     <figure class="floor__visual">
                         <span>
-                            <img src="./assets/images/img04.jpg" alt="" style="transform:scale(1.5);">
+                            <img src="./assets/images/img04.jpg" alt="" style="transform:scale(1.5)">
                         </span>
                     </figure>
                     <button type="button" class="btn-more">MORE</button>
                     <div class="floor__buttons">
-                        <button type="button" class="btn-arrow btn-arrow--up"></button>
-                        <button type="button" class="btn-arrow btn-arrow--down"></button>
+                        <div class="neonbtn">
+                            <button type="button" class="btn-arrow btn-arrow--up">
+                                <i class="icon icon--arrow-up"></i>
+                            </button>
+                        </div>
+                        <div class="neonbtn">
+                            <button type="button" class="btn-arrow btn-arrow--down">
+                                <i class="icon icon--arrow-down"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <aside class="floor__bg" style="background-image:url(./assets/images/img04.jpg)"></aside>
@@ -165,8 +173,17 @@
                     </figure>
                     <button type="button" class="btn-more">MORE</button>
                     <div class="floor__buttons">
-                        <button type="button" class="btn-arrow btn-arrow--dark btn-arrow--up"></button>
-                        <button type="button" class="btn-arrow btn-arrow--dark btn-arrow--down"></button>
+                        <div class="neonbtn">
+                            <button type="button" class="btn-arrow btn-arrow--dark btn-arrow--up">
+                                <i class="icon icon--arrow-up"></i>
+                            </button>
+                        </div>
+                        <div class="neonbtn">
+                            <button type="button" class="btn-arrow btn-arrow--dark btn-arrow--down">
+                                <i class="icon icon--arrow-down"></i>
+                            </button>
+                        </div>
+                        
                     </div>
                 </div>
                 <aside class="floor__bg" style="background-image:url(./assets/images/img19.jpg)"></aside>
@@ -191,8 +208,16 @@
                     </figure>
                     <button type="button" class="btn-more">MORE</button>
                     <div class="floor__buttons">
-                        <button type="button" class="btn-arrow btn-arrow--up"></button>
-                        <button type="button" class="btn-arrow btn-arrow--down"></button>
+                        <div class="neonbtn">
+                            <button type="button" class="btn-arrow btn-arrow--up">
+                                <i class="icon icon--arrow-up"></i>
+                            </button>
+                        </div>
+                        <div class="neonbtn">
+                            <button type="button" class="btn-arrow btn-arrow--down">
+                                <i class="icon icon--arrow-down"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <aside class="floor__bg" style="background-image:url(./assets/images/img20.jpg);"></aside>
@@ -246,9 +271,14 @@
                     <ul class="main-bottom__list">
                         <li>
                             <div class="main-bottom__item">
-                                <figure class="main-bottom__visual">
-                                    <img src="./assets/images/img17.jpg" alt="">
-                                </figure>
+                                <div class="main-bottom__thumbnail">
+                                    <figure class="main-bottom__visual">
+                                        <img src="./assets/images/img17.jpg" alt="">
+                                    </figure>
+                                    <figure class="main-bottom__hover">
+                                        <img src="./assets/images/img17.jpg" alt="">
+                                    </figure>
+                                </div>
                                 <div class="main-bottom__contents">
                                     <img src="./assets/images/text06.png" alt="">
                                 </div>
@@ -256,9 +286,14 @@
                         </li>
                         <li>
                             <div class="main-bottom__item">
-                                <figure class="main-bottom__visual">
-                                    <img src="./assets/images/img18.jpg" alt="">
-                                </figure>
+                                <div class="main-bottom__thumbnail">
+                                    <figure class="main-bottom__visual">
+                                        <img src="./assets/images/img18.jpg" alt="">
+                                    </figure>
+                                    <figure class="main-bottom__hover">
+                                        <img src="./assets/images/img18.jpg" alt="">
+                                    </figure>
+                                </div>
                                 <div class="main-bottom__contents">
                                     <img src="./assets/images/text06.png" alt="">
                                 </div>

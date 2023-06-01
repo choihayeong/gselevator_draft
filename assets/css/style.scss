@@ -4,10 +4,10 @@
 @import "_variables";
 
 ::selection {
-    background-color:#F26521;
+    background-color:$color--point;
 }
 body {
-    color:#232730;
+    color:$color;
     font-family:$fontfamily;
     font-size:16px;
     font-weight:400;
@@ -41,7 +41,7 @@ body {
         top:0;
         width:calc(50% + 1px);
         height:100%;
-        background-color:#000;
+        background-color:$color--black;
         transition:transform 1.2s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.2s;
         &--left {
             left:0;
@@ -53,7 +53,7 @@ body {
             padding-left:6.25vw;
         }
         span {
-            color:#fff;
+            color:$color--white;
             font-size:40px;
             font-weight:500;
         }
@@ -78,7 +78,7 @@ body {
     top:0;
     left:0;
     right:0;
-    background:#fff;
+    background:$color--white;
     z-index:50;
     transition:transform 0.4s ease-out;
     &__inner {
@@ -95,14 +95,46 @@ body {
 .btn-more {
     margin-top:55px;
     padding:17px 31px;
-    color:#fff;
+    color:$color--white;
     border-radius:50px;
-    background-color:#232730;
+    background-color:$color;
     font-size:12px;
     font-weight:bold;
     transition:background-color 0.4s ease-out;
     &:hover {
-        background-color:#F26521;
+        background-color:$color--point;
+    }
+}
+.neonbtn {
+    position:relative;
+    &::before, &::after {
+        content:'';
+        position:absolute;
+        top:0;
+        left:0;
+        background:$color--point;
+    }
+    &::before {
+        width:0;
+        height:1px;
+        
+    }
+    &::after {
+        width:1px;
+        height:0;
+        
+    }
+    &:hover {
+        &::before {
+            width:100%;
+            box-shadow:0px 0px 10px $color--point;
+            transition:width 0.4s ease-out;
+        }
+        &::after {
+            height:100%;
+            box-shadow:0px 0px 10px $color--point;
+            transition:height 0.4s ease-out;
+        }
     }
 }
 .btn-arrow {
@@ -110,7 +142,38 @@ body {
     width:80px;
     height:80px;
     border:1px solid rgba(35, 39, 48, 0.1);
-    &::before {
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        background:$color--point;
+    }
+    &:before {
+        left:-1px;
+        bottom:-1px;
+        width:0;
+        height:1px;
+        
+    }
+    &::after {
+        right:-1px;
+        top:-1px;
+        width:1px;
+        height:0;
+        
+    }
+    &:hover {
+        &::before {
+            width:calc(100% + 1px);
+            box-shadow:0px 0px 10px $color--point;
+            transition:width 0.4s ease-out 0.4s;
+        }
+        &::after {
+            height:calc(100% + 1px);
+            box-shadow:0px 0px 10px $color--point;
+            transition:height 0.4s ease-out 0.4s;
+        }
+    }
+    /*&::before {
         content:'';
         position:absolute;
         top:50%;
@@ -132,17 +195,18 @@ body {
         &::before {
             background-image:url(../images/icon_arrow-down.svg);
         }
-    }
+    }*/
     &--dark {
         border-color:rgba(255, 255, 255, 0.2);
-        &.btn-arrow--up::before {
+        /*&.btn-arrow--up::before {
             background-image:url(../images/icon_arrow-white-up.svg);
         }
         &.btn-arrow--down::before {
             background-image:url(../images/icon_arrow-white-down.svg);
-        }
+        }*/
     }
 }
+
 .gnb {
     flex:1;
 }
@@ -406,6 +470,11 @@ body {
             padding-bottom:40px;
             border-bottom:1px solid rgba(255, 255, 255, 0.1);
             cursor:pointer;
+            &:hover {
+                .main-bottom__hover {
+                    height:100%;
+                }
+            }
         }
     }
     &__item {
@@ -413,10 +482,21 @@ body {
         gap:35px;
         justify-content:space-between;
     }
+    &__thumbnail {
+        position:relative;
+    }
     &__visual {
         position:relative;
         mix-blend-mode:luminosity;
         opacity:0.8;
+    }
+    &__hover {
+        overflow:hidden;
+        position:absolute;
+        top:0;
+        left:0;
+        height:0;
+        transition:height 0.4s ease-out;
     }
     &__contents {
         align-self:flex-end;
