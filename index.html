@@ -82,12 +82,24 @@
                         <span class="pager__full">6</span>
                     </div>
                     <ul class="preview">
-                        <li>01</li>
-                        <li>02</li>
-                        <li>03</li>
-                        <li>04</li>
-                        <li>05</li>
-                        <li>06</li>
+                        <li class="active" style="background-image:url(./assets/images/1.jpg);">
+                            <span class="blind">01</span>
+                        </li>
+                        <li style="background-image:url(./assets/images/2.jpg);">
+                            <span class="blind">02</span>
+                        </li>
+                        <li style="background-image:url(./assets/images/3.jpg);">
+                            <span class="blind">03</span>
+                        </li>
+                        <li style="background-image:url(./assets/images/4.jpg);">
+                            <span class="blind">04</span>
+                        </li>
+                        <li style="background-image:url(./assets/images/5.jpg);">
+                            <span class="blind">05</span>
+                        </li>
+                        <li style="background-image:url(./assets/images/6.jpg);">
+                            <span class="blind">06</span>
+                        </li>
                     </ul>
                 </div>
             </section>
@@ -390,10 +402,16 @@
                 pagination: {
                     el: '.main-visual__indicator'
                 },
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false
-                },
+                // autoplay: {
+                //     delay: 3000,
+                //     disableOnInteraction: false
+                // },
+                on : {
+                    slideChange: function () {
+                        $('.pager__current').text(this.realIndex + 1);
+                        $('.preview > li').eq(this.realIndex).addClass('active').siblings().removeClass('active');
+                    }
+                }
             })
             // type of elevator
             const teSwiper = new Swiper('.elevator-type__list', {
