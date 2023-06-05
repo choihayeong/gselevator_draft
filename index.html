@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>GS엘리베이터</title>
     <link rel="stylesheet" href="./assets/library/aos/aos.css">
     <link rel="stylesheet" href="./assets/library/swiper/swiper-bundle.min.css">
@@ -26,7 +26,7 @@
             </div>
         </div>
         <!-- header -->
-        <header id="header" class="header">
+        <header id="header" class="header nav-up">
             <div class="header__wrap">
                 <div class="header__inner">
                     <div class="gnb gnb__left">
@@ -241,18 +241,34 @@
                     <img src="./assets/images/text04.png" alt="">
                 </h2>
                 <div class="row">
-                    <div class="main-tech__slider">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="./assets/images/img11.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./assets/images/img12.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./assets/images/img13.jpg" alt="">
+                    <div class="main-tech__contents">
+                        <div class="main-tech__slider">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="./assets/images/img11.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="./assets/images/img12.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="./assets/images/img13.jpg" alt="">
+                                </div>
                             </div>
                         </div>
+                        <ul class="main-tech__indicator">
+                            <li>
+                                <div class="main-tech__bar"></div>
+                                <div class="main-tech__item">최첨단 기술</div>
+                            </li>
+                            <li>
+                                <div class="main-tech__bar"></div>
+                                <div class="main-tech__item">스마트 기술</div>
+                            </li>
+                            <li>
+                                <div class="main-tech__bar"></div>
+                                <div class="main-tech__item">친환경 기술</div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -332,13 +348,33 @@
             const wh = $(window).innerHeight(), ww = $(window).innerWidth();
             const evBgTop = $('.main-elevator .floor__bg').offset().top;
 
+            const $sections = $('.section');
+            $sections.eq(0).addClass('active').siblings().removeClass('active'); // initial
+
             $(window).scroll(function(event){
                 didScroll = true;
-                let scTop = $(this).scrollTop();
+                let scTop = $(this).scrollTop(), sectionsTop = [], currentSection = 0;
                 let increVal = scTop - (evBgTop - wh);
                 let treshold = 0;
                 let scaleVal = 0;
 
+                $sections.each((index, ele) => {
+                    sectionsTop.push(ele.offsetTop);
+                })
+                for (let i = 0; i < sectionsTop.length; i++) {
+                    if (scTop >= sectionsTop[i] - 170 && scTop < sectionsTop[i+1] - 170) {
+                        $sections.eq(i).addClass('active').siblings().removeClass('active');
+                        currentSection = i;
+                    }
+                    if (scTop >= sectionsTop[sectionsTop.length - 1] - 170) {
+                        $sections.eq(sectionsTop.length - 1).addClass('active').siblings().removeClass('active');
+                        currentSection = i;
+                    }
+                }
+                if ($('.main-tech').hasClass('active')) {
+                    $('.main-tech__indicator > li').eq(0).addClass('active')
+                    techSwiper.autoplay.start(3000);
+                }
                 /*if (scTop >= evBgTop - wh) {
                     $('.main-elevator').addClass('on');
 
@@ -357,9 +393,6 @@
                 } else {
                     $('.main-elevator').removeClass('on');
                 } */
-
-
-
             });
 
             setInterval(function() {
@@ -395,6 +428,11 @@
             setTimeout(function() {
                 $('.loading').addClass('on');
             }, 300)
+            setTimeout(function() {
+                $('.header').removeClass('nav-up');
+                $('.header').addClass('nav-down');
+                $('.main-visual').addClass('start');
+            }, 1400)
             // kvSwiper
             const kvSwiper = new Swiper('.main-visual__bg', {
                 effect:'fade',
@@ -402,17 +440,32 @@
                 pagination: {
                     el: '.main-visual__indicator'
                 },
-                // autoplay: {
-                //     delay: 3000,
-                //     disableOnInteraction: false
-                // },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
                 on : {
                     slideChange: function () {
                         $('.pager__current').text(this.realIndex + 1);
                         $('.preview > li').eq(this.realIndex).addClass('active').siblings().removeClass('active');
+                    },
+                    slideChangeTransitionStart: function () {
+                        $('.pager__percent').removeClass('active');
+                    },
+                    slideChangeTransitionEnd: function () {
+                        $('.pager__percent').addClass('active');
+                    },
+                    init: function() {
+                        setTimeout(function() {
+                            $('.pager__percent').addClass('active');
+                        }, 1400)
                     }
                 }
             })
+            kvSwiper.autoplay.stop();
+            setTimeout(function() {
+                kvSwiper.autoplay.start();
+            }, 1400)
             // type of elevator
             const teSwiper = new Swiper('.elevator-type__list', {
                 slidesPerView:'auto',
@@ -423,7 +476,18 @@
             const techSwiper = new Swiper('.main-tech__slider', {
                 effect:'fade',
                 loop:true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+                on : {
+                    slideChange: function () {
+                        $('.main-tech__indicator > li').eq(this.realIndex).addClass('active').siblings().removeClass('active');
+                    }
+                }
             })
+            techSwiper.autoplay.stop();
+
         })
     </script>
 </body>
