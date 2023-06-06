@@ -15,6 +15,9 @@ body {
     &::-webkit-scrollbar {
         display:none;
     }
+    &.scroll-lock {
+        overflow:hidden;
+    }
 }
 .wrap {
     overflow:hidden;
@@ -106,6 +109,7 @@ body {
     }
 }
 .neonbtn {
+    display:inline-block;
     position:relative;
     &::before, &::after {
         content:'';
@@ -113,11 +117,11 @@ body {
         top:0;
         left:0;
         background:$color--point;
+        opacity:0.4;
     }
     &::before {
         width:0;
         height:1px;
-        
     }
     &::after {
         width:1px;
@@ -146,22 +150,23 @@ body {
         content: '';
         position: absolute;
         background:$color--point;
+        opacity:0.4;
     }
     &:before {
         left:0;
         bottom:-1px;
         width:0;
         height:1px;
-        
     }
     &::after {
         right:-1px;
         top:0;
         width:1px;
         height:0;
-        
     }
     &:hover {
+        border-color:transparent;
+        transition:border-top-color 0.4s ease-out, border-left-color 0.4s ease-out, border-bottom-color 1.2s ease-out, border-right-color 1.2s ease-out;
         &::before {
             width:calc(100% + 1px);
             box-shadow:0px 0px 10px $color--point;
@@ -640,5 +645,102 @@ body {
         &--arrow-down {
             background-image:url(../images/icon_arrow-white-down.svg);
         }
+    }
+}
+
+
+// sub
+.subvisual {
+    width:100%;
+    height:640px;
+    background:#ccc;
+    &--full {
+        height:100vh;
+    }
+    &__inner {
+        position:relative;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        height:100%;
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-position:center top;
+        &::before, &::after {
+            content:'';
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+        }
+        &::before {
+            background:#CCC;
+            mix-blend-mode:multiply;
+        }
+        &::after {
+            z-index: 5;
+        }
+        &--full {
+            &::before {
+                background: linear-gradient(180deg, rgba(51, 51, 51, 0) 61.11%, #333 100%);
+                mix-blend-mode:normal;
+                opacity:0.2;
+            }
+            &::after {
+                background:#333;
+                mix-blend-mode:multiply;
+                opacity:0.3;
+            }
+        }
+    }
+    &__contents {
+        position:relative;
+        z-index:10;
+        &--mq {
+            width:100%;
+            height:190px;
+            background:url(../images/sub/sub14.png);
+            animation:mq 20s infinite linear;
+        }
+    }
+    &__bottom {
+        position:absolute;
+        z-index:10;
+        &--left {
+            bottom:120px;
+            left:260px;
+        }
+        &--right {
+            bottom:100px;
+            right:260px;
+        }
+    }
+}
+.projectlist {
+    > li ~ li {
+        margin-top:60px;
+    }
+}
+.subsection {
+    &--full {
+        height:100vh;
+    }
+    &--bottom {
+        touch-action: pan-y;
+        overflow-y: auto;
+    }
+    &__banner {
+        padding:120px 0 100px;
+        background:#232730;
+    }
+}
+
+@keyframes mq {
+    0% {
+        background-position:0 center;
+    }
+    100% {
+        background-position:-1920px center;
     }
 }

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>GS엘리베이터</title>
+    <link rel="stylesheet" href="./assets/library/aos/aos.css">
+    <link rel="stylesheet" href="./assets/library/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./assets/library/locomotive-scroll/locomotive-scroll.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/library/jquery/jquery-3.7.0.min.js"></script>
+    <script src="./assets/library/aos/aos.js"></script>
+    <script src="./assets/library/locomotive-scroll/locomotive-scroll.min.js"></script>
+    <script src="./assets/library/swiper/swiper-bundle.min.js"></script>
+    <script src="./assets/script/common.js"></script>
+</head>
+<body class="scroll-lock">
+    <div class="wrap">
+        <!-- HEADER -->
+        <header id="header" class="header">
+            HEADER
+        </header>
+        <!-- // -->
+        <div class="container fullpage" style="transition:all 0.7s ease-out">
+            <section class="subsection subvisual subvisual--full">
+                <div class="subvisual__inner subvisual__inner--full" style="background-image:url(./assets/images/sub/sub11.jpg);">
+                    <div class="subvisual__contents subvisual__contents--mq"></div>
+                    <div class="subvisual__bottom subvisual__bottom--left">
+                        <img src="./assets/images/sub/sub12.png" alt="">
+                    </div>
+                    <div class="subvisual__bottom subvisual__bottom--right">
+                        <img src="./assets/images/sub/sub13.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <section class="subsection subsection--full">
+                <article class="subsection__counter">
+                    <img src="./assets/images/sub/sub15.jpg" alt="">
+                </article>
+            </section>
+            <section class="subsection subsection--full subsection--bottom" style="background-color: #ccc;">
+                <article class="subsection__contents">
+                    <div class="introduce">
+                        <img src="./assets/images/sub/sub16.jpg" alt="">
+                    </div>
+                </article>
+                <article class="subsection__banner">
+                    <div class="row">
+                        <ul class="bannerlist">
+                            <li></li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- FOOTER -->
+                <footer>
+                    FOOTER
+                </footer>
+                <!-- // -->
+            </section>
+
+        </div>
+
+    </div>
+    <script>
+        AOS.init();
+        history.scrollRestoration = "manual";
+        $(function() {
+            var $body = $('body'),
+                $wrap = $('#wrap'),
+                currentIndex = 0,
+                isMove = false,
+                isText = false,
+                mouseWheel = 0;
+            var startY, endY;
+
+            var intro = {
+                // mouse wheel
+                handleWheel : function(e) {
+                    if (!isMove) {
+                        if (e.originalEvent.deltaY > 0) {
+                            if (!this.isLast()) {
+                                isMove = true;
+                                currentIndex++;
+                                this.setTransitionSection();
+                            }
+                        } else {
+                            if (!this.isFirst()) {
+                                isMove = true;
+                                currentIndex--;
+                                console.log(currentIndex);
+                                if (currentIndex == 1) {
+                                    this.subsectionBottomTransition();
+                                } else {
+                                    this.setTransitionSection();
+                                }
+                            }
+                        }
+                    }
+                },
+                // pc/mo 구분
+                isMobile : function() {
+                    var ww = window.innerWidth;
+                    return ww < 1366;
+                },
+                isOverFlow() {
+                    if (intro.isMobile()) {
+                        $body.removeClass('scroll-lock');
+                    } else {
+                        $body.addClass('scroll-lock');
+                    }
+                },
+                setTransitionSection : function() {
+                    if (currentIndex < 3) {
+                        $('.fullpage').css('transform','translate3d(0px, -' + currentIndex * window.innerHeight + 'px, 0px)');
+                    }
+                    setTimeout(function () {
+                        isMove = false;
+                    }, 1000);
+                },
+                subsectionBottomTransition : function() {
+                    $('.subsection--bottom').scroll(function() {
+                        if ($(this)[0].scrollTop === 0) {
+                            $('.fullpage').css('transform','translate3d(0px, -' + currentIndex * window.innerHeight + 'px, 0px)');
+                            $('.subsection').eq(currentIndex).addClass('active').siblings().removeClass('active');
+                        } else {
+                            $('.subsection').eq(currentIndex).removeClass('active');
+                        }
+                        if ($('.subsection').eq(currentIndex).hasClass('active')) {
+                            setTimeout(function () {
+                                isMove = false;
+                            }, 1000);
+                        }
+                    })
+                },
+                isFirst : function() {
+                    return currentIndex === 0;
+                },
+                isLast : function() {
+                    return $('.subsection').length == (currentIndex + 1);
+                },
+                bind: function() {
+                    $(window).bind('mousewheel',function(e) { intro.handleWheel(e)});
+                    $(window).bind('load',intro.isOverFlow);
+                },
+                init: function() {
+                    $('.subsection').eq(currentIndex).addClass('active');
+                    // $(window).bind('load',intro.isOverFlow);
+                }
+            }
+            intro.bind();
+			intro.init();
+        });
+    </script>
+</body>
+</html>
