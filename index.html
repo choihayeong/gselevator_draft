@@ -44,7 +44,7 @@
         <!-- // -->
         <main id="main" class="main" data-scroll-container>
             <!-- KEY VISUAL -->
-            <section class="section main-visual">
+            <section class="section main-visual" data-color="default">
                 <div class="main-visual__bg">
                     <div class="swiper-wrapper">
                         <div class="main-visual__item swiper-slide" style="background-image:url(./assets/images/img01.jpg)">
@@ -105,7 +105,7 @@
             </section>
             <!-- // -->
             <!-- ELEVATOR -->
-            <section class="section floor main-elevator">
+            <section class="section floor main-elevator" data-color="default">
                 <div class="floor__inner">
                     <div class="floor__heading">
                         <div class="floor__num">1</div>
@@ -159,6 +159,9 @@
                                     <div class="swiper-slide">
                                         <img src="./assets/images/img08.jpg" alt="">
                                     </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/img05.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +170,7 @@
             </section>
             <!-- // -->
             <!-- INSTALLATION -->
-            <section class="section floor main-installation">
+            <section class="section floor main-installation" data-color="white">
                 <div class="floor__inner floor__inner--dark">
                     <div class="floor__heading">
                         <div class="floor__num">2</div>
@@ -185,12 +188,12 @@
                     </figure>
                     <button type="button" class="btn-more">MORE</button>
                     <div class="floor__buttons">
-                        <div class="neonbtn">
+                        <div class="neonbtn neonbtn--dark">
                             <button type="button" class="btn-arrow btn-arrow--dark btn-arrow--up">
                                 <i class="icon icon--arrow-up"></i>
                             </button>
                         </div>
-                        <div class="neonbtn">
+                        <div class="neonbtn neonbtn--dark">
                             <button type="button" class="btn-arrow btn-arrow--dark btn-arrow--down">
                                 <i class="icon icon--arrow-down"></i>
                             </button>
@@ -202,7 +205,7 @@
             </section>
             <!-- // -->
             <!-- MAINTENANCE -->
-            <section class="section floor main-maintenance">
+            <section class="section floor main-maintenance" data-color="default">
                 <div class="floor__inner">
                     <div class="floor__heading">
                         <div class="floor__num">3</div>
@@ -236,7 +239,7 @@
             </section>
             <!-- // -->
             <!-- TECH -->
-            <section class="section main-tech">
+            <section class="section main-tech" data-color="default">
                 <h2 style="text-align:center">
                     <img src="./assets/images/text04.png" alt="">
                 </h2>
@@ -274,19 +277,19 @@
             </section>
             <!-- // -->
             <!-- PRESS -->
-            <section class="section main-press">
+            <section class="section main-press" data-color="default">
                 <h2 style="text-align:center">
                     <img src="./assets/images/text05.png" alt="">
                 </h2>
                 <div class="row">
                     <ul class="main-press__list">
-                        <li>
+                        <li data-aos="flip-up">
                             <img src="./assets/images/img14.jpg" alt="">
                         </li>
-                        <li>
+                        <li data-aos="flip-up">
                             <img src="./assets/images/img15.jpg" alt="">
                         </li>
-                        <li>
+                        <li data-aos="flip-up">
                             <img src="./assets/images/img16.jpg" alt="">
                         </li>
                     </ul>
@@ -294,7 +297,7 @@
             </section>
             <!-- // -->
             <!-- bottom -->
-            <aside class="main-bottom">
+            <aside class="section main-bottom" data-color="white">
                 <div class="row">
                     <ul class="main-bottom__list">
                         <li>
@@ -331,14 +334,27 @@
                 </div>
             </aside>
             <!-- // -->
+            <ul class="main-navigation">
+                <li class="active">L</li>
+                <li>1F</li>
+                <li>2F</li>
+                <li>3F</li>
+                <li>4F</li>
+                <li>5F</li>
+                <li>6F</li>                
+            </ul>
         </main>
         <!-- footer -->
         <footer id="footer" class="footer">
             <img src="./assets/images/footer.jpg" alt="">
+            <button class="btn-top">
+                <span>TOP</span>
+            </button>
         </footer>
         <!-- // -->
     </div>
     <script>
+        AOS.init();
         $(function() {
             // header
             var didScroll;
@@ -348,7 +364,8 @@
             const wh = $(window).innerHeight(), ww = $(window).innerWidth();
             const evBgTop = $('.main-elevator .floor__bg').offset().top;
 
-            const $sections = $('.section');
+            let $wrap = $('.wrap');
+            const $sections = $('.section'), $mainNav = $('.main-navigation'), $mainNavItems = $('.main-navigation > li');
             $sections.eq(0).addClass('active').siblings().removeClass('active'); // initial
 
             $(window).scroll(function(event){
@@ -364,35 +381,33 @@
                 for (let i = 0; i < sectionsTop.length; i++) {
                     if (scTop >= sectionsTop[i] - 170 && scTop < sectionsTop[i+1] - 170) {
                         $sections.eq(i).addClass('active').siblings().removeClass('active');
+                        $mainNavItems.eq(i).addClass('active').siblings().removeClass('active');
                         currentSection = i;
                     }
                     if (scTop >= sectionsTop[sectionsTop.length - 1] - 170) {
                         $sections.eq(sectionsTop.length - 1).addClass('active').siblings().removeClass('active');
+                        $mainNavItems.eq(sectionsTop.length - 1).addClass('active').siblings().removeClass('active');
                         currentSection = i;
                     }
                 }
+
+                if (currentSection >= 1) {
+                    $mainNav.addClass('on');
+                } else {
+                    $mainNav.removeClass('on');
+                }
+                let activeSection = $('.section.active');
+                console.log(activeSection.data('color'));
+                if (activeSection.data('color') === 'white') {
+                    $wrap.addClass('white');
+                } else {
+                    $wrap.removeClass('white');
+                }
+                // tech
                 if ($('.main-tech').hasClass('active')) {
                     $('.main-tech__indicator > li').eq(0).addClass('active')
                     techSwiper.autoplay.start(3000);
                 }
-                /*if (scTop >= evBgTop - wh) {
-                    $('.main-elevator').addClass('on');
-
-                    if (increVal * 2 + 450 <= 1920) {
-                        $('.floor__visual span').css('width',`calc(450px + ${increVal * 2}px)`);
-                    } else {
-                        $('.floor__visual span').css('width',`1920px`);
-                    }
-
-                    // if () {
-                    //     $('.floor__visual span img').css('transform',`scale(1.5 - ${0})`);
-                    // } else {
-
-                    // }
-                    
-                } else {
-                    $('.main-elevator').removeClass('on');
-                } */
             });
 
             setInterval(function() {
@@ -468,9 +483,12 @@
             }, 1400)
             // type of elevator
             const teSwiper = new Swiper('.elevator-type__list', {
-                slidesPerView:'auto',
+                // loop: true,
+                // loopedSlides: 4,
+                rewind:true,
+                slidesPerView: 'auto',
                 spaceBetween:35,
-                loop:true,
+                watchOverflow: false,
             })
             // tech slider
             const techSwiper = new Swiper('.main-tech__slider', {
@@ -483,11 +501,15 @@
                 on : {
                     slideChange: function () {
                         $('.main-tech__indicator > li').eq(this.realIndex).addClass('active').siblings().removeClass('active');
-                    }
+                    },
                 }
             })
             techSwiper.autoplay.stop();
-
+            /* FOOTER */
+            $('.btn-top').on('click', function() {
+                $('html, body').animate({scrollTop:0}, 1500, "linear").delay(1500);
+                return false;
+            });
         })
     </script>
 </body>

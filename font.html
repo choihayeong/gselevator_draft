@@ -19,10 +19,48 @@
             color:#F26521;
             font-weight:500;
         }
+        .btn-top {
+            position:relative;
+            width:39px;
+            height:39px;
+            border:1.5px solid rgba(255, 255, 255, 0.3);
+            border-radius:3.25px;
+            transition:all 0.5s;
+        }
+        .btn-top span {
+            position:relative;
+            display:inline-block;
+            padding-top:11px;
+            color:rgba(255, 255, 255, 0.3);
+            font-size:10px;
+            font-family:'Oswald';
+            font-weight:600;
+            transition:all 0.5s;
+        }
+        .btn-top span::before {
+            content:'';
+            position:absolute;
+            top:0;
+            left:50%;
+            width:7px;
+            height:4px;
+            margin-left:-3.5px;
+            background:url(./assets/images/icon_arrow-top.svg);
+            transition:all 0.5s;
+        }
+        .btn-top:hover {
+            border-color:#A5684C;
+        }
+        .btn-top:hover span {
+            color:#A5684C;
+        }
+        .btn-top:hover span::before {
+            background:url(./assets/images/icon_arrow-top-on.svg);
+        }
     </style>
 </head>
 <body>
-    <div class="wrap" style="padding-bottom:100px;text-align:center;">
+    <div class="wrap" style="padding-bottom:100px;text-align:center">
         <h1 style="padding-top:100px">
             <img src="./assets/images/logo.svg" alt="">
         </h1>
@@ -43,6 +81,12 @@
                 <i class="icon icon--arrow-up"></i>
             </button>
         </div>
+        <div class="footer" style="background-color:#161620">
+            <button class="btn-top">
+                <span>TOP</span>
+            </button>
+        </div>
+
     </div>
 </body>
 </html>
