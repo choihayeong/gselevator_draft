@@ -13,10 +13,11 @@
     <script src="./assets/library/aos/aos.js"></script>
     <script src="./assets/library/locomotive-scroll/locomotive-scroll.min.js"></script>
     <script src="./assets/library/swiper/swiper-bundle.min.js"></script>
+    <script src="./assets/script/main.js"></script>
     <script src="./assets/script/common.js"></script>
 </head>
 <body> 
-    <div class="wrap" data-scroll-container>
+    <div class="wrap">
         <div class="loading">
             <div class="loading__panel loading__panel--left">
                 <span>Look</span>
@@ -29,14 +30,41 @@
         <header id="header" class="header nav-up">
             <div class="header__wrap">
                 <div class="header__inner">
-                    <div class="gnb gnb__left">
-                        <img src="./assets/images/gnb01.jpg" alt="">
+                    <div class="gnb gnb--left">
+                        <button type="button" class="btn-menu">
+                            <span class="btn-menu__line btn-menu__line--top"></span>
+                            <span class="btn-menu__line btn-menu__line--bottom"></span>
+                        </button>
+                        <ul class="gnb__left">
+                            <li class="active">
+                                <a href="./sub02.html">대표 프로젝트</a>
+                            </li>
+                            <li>
+                                제품소개
+                            </li>
+                            <li>
+                                서비스
+                            </li>
+                            <li>
+                                혁신기술
+                            </li>
+                        </ul>
                     </div>
                     <h1 class="logo" onclick="location.href='./index.html'">
                         <img src="./assets/images/logo.svg" alt="">
                     </h1>
-                    <div class="gnb gnb__right">
-                        <img src="./assets/images/gnb02.jpg" alt="">
+                    <div class="gnb gnb--right">
+                        <ul class="gnb__right">
+                            <li>
+                                <a href="./sub01.html">기업소개</a>
+                            </li>
+                            <li>
+                                인재경영
+                            </li>
+                            <li>
+                                고객지원
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -44,7 +72,7 @@
         <!-- // -->
         <main id="main" class="main" data-scroll-container>
             <!-- KEY VISUAL -->
-            <section class="section main-visual" data-color="default">
+            <section class="section main-visual" data-color="default" data-scroll-section>
                 <div class="main-visual__bg">
                     <div class="swiper-wrapper">
                         <div class="main-visual__item swiper-slide" style="background-image:url(./assets/images/img01.jpg)">
@@ -105,39 +133,43 @@
             </section>
             <!-- // -->
             <!-- ELEVATOR -->
-            <section class="section floor main-elevator" data-color="default">
-                <div class="floor__inner">
-                    <div class="floor__heading">
-                        <div class="floor__num">1</div>
-                        <div class="floor__title">엘리베이터</div>
-                    </div>
-                    <div class="floor__content">
-                        <h2 class="floor__slogan">
-                            <span>Premium</span>
-                            <span>GS elevator</span>
-                        </h2>
-                        <div class="floor__description">초고속 프리미엄 엘리베이터는 빌딩의 수직 성장에 걸맞는 제품을 설계합니다</div>
-                    </div>
-                    <figure class="floor__visual">
-                        <span>
-                            <img src="./assets/images/img04.jpg" alt="" style="transform:scale(1.5)">
-                        </span>
-                    </figure>
-                    <button type="button" class="btn-more">MORE</button>
-                    <div class="floor__buttons">
-                        <div class="neonbtn">
-                            <button type="button" class="btn-arrow btn-arrow--up">
-                                <i class="icon icon--arrow-up"></i>
-                            </button>
+            <section class="section floor main-elevator" data-color="default" data-scroll-section>
+                <div id="ev01" class="evcontainer">
+                    <div class="floor__inner">
+                        <div class="floor__heading">
+                            <div class="floor__num">1</div>
+                            <div class="floor__title">엘리베이터</div>
                         </div>
-                        <div class="neonbtn">
-                            <button type="button" class="btn-arrow btn-arrow--down">
-                                <i class="icon icon--arrow-down"></i>
-                            </button>
+                        <div class="floor__content">
+                            <h2 class="floor__slogan" data-aos="split">
+                                <div>Premium</div>
+                                <div>GS elevator</div>
+                            </h2>
+                            <div class="floor__description">초고속 프리미엄 엘리베이터는 빌딩의 수직 성장에 걸맞는 제품을 설계합니다</div>
+                        </div>
+                        <figure class="floor__visual">
+                            <span>
+                                <img src="./assets/images/img04.jpg" alt="" style="transform:scale(1.5)">
+                            </span>
+                        </figure>
+                        <button type="button" class="btn-more">MORE</button>
+                        <div class="floor__buttons">
+                            <div class="neonbtn">
+                                <button type="button" class="btn-arrow btn-arrow--up">
+                                    <i class="icon icon--arrow-up"></i>
+                                </button>
+                            </div>
+                            <div class="neonbtn">
+                                <button type="button" class="btn-arrow btn-arrow--down">
+                                    <i class="icon icon--arrow-down"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
+                    <aside class="floor__bg floor__bg--long">
+                        <div class="floor__bg-inner" style="background-image:url(./assets/images/img04_1.jpg)"></div>
+                    </aside>
                 </div>
-                <aside class="floor__bg" style="background-image:url(./assets/images/img04.jpg)"></aside>
                 <article class="main-elevator__contents">
                     <div class="row">
                         <div class="elevator-type">
@@ -170,72 +202,80 @@
             </section>
             <!-- // -->
             <!-- INSTALLATION -->
-            <section class="section floor main-installation" data-color="white">
-                <div class="floor__inner floor__inner--dark">
-                    <div class="floor__heading">
-                        <div class="floor__num">2</div>
-                        <div class="floor__title">설치&교체공사</div>
-                    </div>
-                    <div class="floor__content">
-                        <h2 class="floor__slogan">
-                            <span>installation &</span>
-                            <span>replacement</span>
-                        </h2>
-                        <div class="floor__description">편안함을 보장하고 안전을 위해 엘리베이터 시스템의 현대화를 추구합니다</div>
-                    </div>
-                    <figure class="floor__visual">
-                        <img src="./assets/images/img09.jpg" alt="">
-                    </figure>
-                    <button type="button" class="btn-more">MORE</button>
-                    <div class="floor__buttons">
-                        <div class="neonbtn neonbtn--dark">
-                            <button type="button" class="btn-arrow btn-arrow--dark btn-arrow--up">
-                                <i class="icon icon--arrow-up"></i>
-                            </button>
+            <section class="section floor main-installation" data-color="white" data-scroll-section>
+                <div id="ev02" class="evcontainer">
+                    <div class="floor__inner floor__inner--dark">
+                        <div class="floor__heading">
+                            <div class="floor__num">2</div>
+                            <div class="floor__title">설치&교체공사</div>
                         </div>
-                        <div class="neonbtn neonbtn--dark">
-                            <button type="button" class="btn-arrow btn-arrow--dark btn-arrow--down">
-                                <i class="icon icon--arrow-down"></i>
-                            </button>
+                        <div class="floor__content">
+                            <h2 class="floor__slogan" data-aos="split">
+                                <div>installation &</div>
+                                <div>replacement</div>
+                            </h2>
+                            <div class="floor__description">편안함을 보장하고 안전을 위해 엘리베이터 시스템의 현대화를 추구합니다</div>
                         </div>
+                        <figure class="floor__visual">
+                            <img src="./assets/images/img09.jpg" alt="">
+                        </figure>
+                        <button type="button" class="btn-more">MORE</button>
+                        <div class="floor__buttons">
+                            <div class="neonbtn neonbtn--dark">
+                                <button type="button" class="btn-arrow btn-arrow--dark btn-arrow--up">
+                                    <i class="icon icon--arrow-up"></i>
+                                </button>
+                            </div>
+                            <div class="neonbtn neonbtn--dark">
+                                <button type="button" class="btn-arrow btn-arrow--dark btn-arrow--down">
+                                    <i class="icon icon--arrow-down"></i>
+                                </button>
+                            </div>
                         
+                        </div>
                     </div>
+                    <aside class="floor__bg">
+                        <div class="floor__bg-inner" style="background-image:url(./assets/images/img19.jpg)"></div>
+                    </aside>
                 </div>
-                <aside class="floor__bg" style="background-image:url(./assets/images/img19.jpg)"></aside>
             </section>
             <!-- // -->
             <!-- MAINTENANCE -->
-            <section class="section floor main-maintenance" data-color="default">
-                <div class="floor__inner">
-                    <div class="floor__heading">
-                        <div class="floor__num">3</div>
-                        <div class="floor__title">유지보수 서비스</div>
-                    </div>
-                    <div class="floor__content">
-                        <h2 class="floor__slogan">
-                            <span>maintenance</span>
-                            <span>Service</span>
-                        </h2>
-                        <div class="floor__description">안전을 최우선으로 하는 최첨단 원격관리 서비스와 고객 맞춤형 유지관리를 제공합니다</div>
-                    </div>
-                    <figure class="floor__visual">
-                        <img src="./assets/images/img10.jpg" alt="">
-                    </figure>
-                    <button type="button" class="btn-more">MORE</button>
-                    <div class="floor__buttons">
-                        <div class="neonbtn">
-                            <button type="button" class="btn-arrow btn-arrow--up">
-                                <i class="icon icon--arrow-up"></i>
-                            </button>
+            <section class="section floor main-maintenance" data-color="default" data-scroll-section>
+                <div id="ev03" class="evcontainer">
+                    <div class="floor__inner">
+                        <div class="floor__heading">
+                            <div class="floor__num">3</div>
+                            <div class="floor__title">유지보수 서비스</div>
                         </div>
-                        <div class="neonbtn">
-                            <button type="button" class="btn-arrow btn-arrow--down">
-                                <i class="icon icon--arrow-down"></i>
-                            </button>
+                        <div class="floor__content">
+                            <h2 class="floor__slogan" data-aos="split">
+                                <div>maintenance</div>
+                                <div>Service</div>
+                            </h2>
+                            <div class="floor__description">안전을 최우선으로 하는 최첨단 원격관리 서비스와 고객 맞춤형 유지관리를 제공합니다</div>
+                        </div>
+                        <figure class="floor__visual">
+                            <img src="./assets/images/img10.jpg" alt="">
+                        </figure>
+                        <button type="button" class="btn-more">MORE</button>
+                        <div class="floor__buttons">
+                            <div class="neonbtn">
+                                <button type="button" class="btn-arrow btn-arrow--up">
+                                    <i class="icon icon--arrow-up"></i>
+                                </button>
+                            </div>
+                            <div class="neonbtn">
+                                <button type="button" class="btn-arrow btn-arrow--down">
+                                    <i class="icon icon--arrow-down"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
+                    <aside class="floor__bg">
+                        <div class="floor__bg-inner" style="background-image:url(./assets/images/img20.jpg);"></div>
+                    </aside>
                 </div>
-                <aside class="floor__bg" style="background-image:url(./assets/images/img20.jpg);"></aside>
             </section>
             <!-- // -->
             <!-- TECH -->
@@ -277,7 +317,7 @@
             </section>
             <!-- // -->
             <!-- PRESS -->
-            <section class="section main-press" data-color="default">
+            <section class="section main-press" data-color="default" data-scroll-section>
                 <h2 style="text-align:center">
                     <img src="./assets/images/text05.png" alt="">
                 </h2>
@@ -297,7 +337,7 @@
             </section>
             <!-- // -->
             <!-- bottom -->
-            <aside class="section main-bottom" data-color="white">
+            <aside class="section main-bottom" data-color="white" data-scroll-section>
                 <div class="row">
                     <ul class="main-bottom__list">
                         <li>
@@ -332,21 +372,30 @@
                         </li>
                     </ul>
                 </div>
+                <ul class="main-navigation">
+                    <li class="active">L</li>
+                    <li>1F</li>
+                    <li>2F</li>
+                    <li>3F</li>
+                    <li>4F</li>
+                    <li>5F</li>
+                    <li>6F</li>                
+                </ul>
             </aside>
             <!-- // -->
-            <ul class="main-navigation">
-                <li class="active">L</li>
-                <li>1F</li>
-                <li>2F</li>
-                <li>3F</li>
-                <li>4F</li>
-                <li>5F</li>
-                <li>6F</li>                
-            </ul>
         </main>
         <!-- footer -->
         <footer id="footer" class="footer">
             <img src="./assets/images/footer.jpg" alt="">
+            <ul class="footer__menu">
+                <li>회사소개서</li>
+                <li>
+                    <a href="./sub01.html">엘리베이터</a>
+                </li>
+                <li>
+                    <a href="./sub02.html">주요프로젝트</a>
+                </li>
+            </ul>
             <button class="btn-top">
                 <span>TOP</span>
             </button>
@@ -354,26 +403,14 @@
         <!-- // -->
     </div>
     <script>
-        AOS.init();
         $(function() {
-            // header
-            var didScroll;
-            var lastScrollTop = 0;
-            var delta = 5;
-            var navbarHeight = $('.header').outerHeight();
             const wh = $(window).innerHeight(), ww = $(window).innerWidth();
-            const evBgTop = $('.main-elevator .floor__bg').offset().top;
-
             let $wrap = $('.wrap');
             const $sections = $('.section'), $mainNav = $('.main-navigation'), $mainNavItems = $('.main-navigation > li');
             $sections.eq(0).addClass('active').siblings().removeClass('active'); // initial
 
             $(window).scroll(function(event){
-                didScroll = true;
-                let scTop = $(this).scrollTop(), sectionsTop = [], currentSection = 0;
-                let increVal = scTop - (evBgTop - wh);
-                let treshold = 0;
-                let scaleVal = 0;
+                let scTop = $(this).scrollTop(), sectionsTop = [], currentSection = 0, activeSection = $('.section.active');
 
                 $sections.each((index, ele) => {
                     sectionsTop.push(ele.offsetTop);
@@ -383,6 +420,34 @@
                         $sections.eq(i).addClass('active').siblings().removeClass('active');
                         $mainNavItems.eq(i).addClass('active').siblings().removeClass('active');
                         currentSection = i;
+
+                        if (currentSection === 1) {
+                            let scRatio = (scTop - sectionsTop[i]) / sectionsTop[i] / 2;
+                            console.log(scRatio * 100);
+                            $('#ev01 .floor__inner').css('transform', `translateY(-${scRatio * 100}%)`);
+                            $('#ev01 .floor__bg-inner').css('opacity', `1`);
+                            $('#ev01 .floor__bg-inner').css('background-position-y', `${scRatio * 100}%`);
+                            $('#ev02 .floor__bg-inner').css('opacity', `0`);
+                            $('#ev03 .floor__bg-inner').css('opacity', `0`);
+                        }
+                        if (currentSection === 2) {
+                            let scRatio = (scTop - sectionsTop[i]) / sectionsTop[i] / 2;
+                            console.log(scRatio * 100);
+                            $('#ev02 .floor__inner').css('transform', `translateY(-${scRatio * 100}%)`);
+                            $('#ev01 .floor__bg-inner').css('opacity', `0`);
+                            $('#ev02 .floor__bg-inner').css('opacity', `1`);
+                            $('#ev02 .floor__bg-inner').css('background-position-y', `${scRatio * 150}%`);
+                            $('#ev03 .floor__bg-inner').css('opacity', `0`);
+                        }
+                        if (currentSection === 3) {
+                            let scRatio = (scTop - sectionsTop[i]) / sectionsTop[i] / 2;
+                            console.log(scRatio * 100);
+                            $('#ev03 .floor__inner').css('transform', `translateY(-${scRatio * 100}%)`);
+                            $('#ev01 .floor__bg-inner').css('opacity', `0`);
+                            $('#ev02 .floor__bg-inner').css('opacity', `0`);
+                            $('#ev03 .floor__bg-inner').css('opacity', `1`);
+                            $('#ev03 .floor__bg-inner').css('background-position-y', `${scRatio * 150}%`);
+                        }
                     }
                     if (scTop >= sectionsTop[sectionsTop.length - 1] - 170) {
                         $sections.eq(sectionsTop.length - 1).addClass('active').siblings().removeClass('active');
@@ -390,14 +455,17 @@
                         currentSection = i;
                     }
                 }
-
                 if (currentSection >= 1) {
                     $mainNav.addClass('on');
                 } else {
                     $mainNav.removeClass('on');
                 }
-                let activeSection = $('.section.active');
-                console.log(activeSection.data('color'));
+                if (currentSection === 6) {
+                    $mainNav.addClass('fixed');
+                } else {
+                    $mainNav.removeClass('fixed');
+                }
+                
                 if (activeSection.data('color') === 'white') {
                     $wrap.addClass('white');
                 } else {
@@ -406,110 +474,28 @@
                 // tech
                 if ($('.main-tech').hasClass('active')) {
                     $('.main-tech__indicator > li').eq(0).addClass('active')
-                    techSwiper.autoplay.start(3000);
+                    // techSwiper.autoplay.start(3000);
                 }
             });
 
-            setInterval(function() {
-                if (didScroll) {
-                    hasScrolled();
-                    didScroll = false;
-                }
-            }, 250);
+            for (var i = 0; i < $('.floor__slogan div').length; i++) {
+                let cateText = $('.floor__slogan div').eq(i).text();
+                cateText = cateText.split('').map((item, index) => {
+                    item = `<span class="char">${item}</span>`;
 
-            function hasScrolled() {
-                var st = $(this).scrollTop();
-                
-                // Make sure they scroll more than delta
-                if(Math.abs(lastScrollTop - st) <= delta)
-                    return;
-                
-                // If they scrolled down and are past the navbar, add class .nav-up.
-                // This is necessary so you never see what is "behind" the navbar.
-                if (st > lastScrollTop && st > navbarHeight){
-                    // Scroll Down
-                    $('header').removeClass('nav-down').addClass('nav-up');
-                } else {
-                    // Scroll Up
-                    if(st + $(window).height() < $(document).height()) {
-                        $('header').removeClass('nav-up').addClass('nav-down');
-                    }
-                }
-                
-                lastScrollTop = st;
+                    return item;
+                });
+                $('.floor__slogan div').eq(i).html(cateText);
             }
+            for (var i = 0; i < $('.splittext').length; i++) {
+                let cateText = $('.splittext').eq(i).text();
+                cateText = cateText.split('').map((item, index) => {
+                    item = `<span class="char">${item}</span>`;
 
-            // INTRO
-            setTimeout(function() {
-                $('.loading').addClass('on');
-            }, 300)
-            setTimeout(function() {
-                $('.header').removeClass('nav-up');
-                $('.header').addClass('nav-down');
-                $('.main-visual').addClass('start');
-            }, 1400)
-            // kvSwiper
-            const kvSwiper = new Swiper('.main-visual__bg', {
-                effect:'fade',
-                loop:true,
-                pagination: {
-                    el: '.main-visual__indicator'
-                },
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: false
-                },
-                on : {
-                    slideChange: function () {
-                        $('.pager__current').text(this.realIndex + 1);
-                        $('.preview > li').eq(this.realIndex).addClass('active').siblings().removeClass('active');
-                    },
-                    slideChangeTransitionStart: function () {
-                        $('.pager__percent').removeClass('active');
-                    },
-                    slideChangeTransitionEnd: function () {
-                        $('.pager__percent').addClass('active');
-                    },
-                    init: function() {
-                        setTimeout(function() {
-                            $('.pager__percent').addClass('active');
-                        }, 1400)
-                    }
-                }
-            })
-            kvSwiper.autoplay.stop();
-            setTimeout(function() {
-                kvSwiper.autoplay.start();
-            }, 1400)
-            // type of elevator
-            const teSwiper = new Swiper('.elevator-type__list', {
-                // loop: true,
-                // loopedSlides: 4,
-                rewind:true,
-                slidesPerView: 'auto',
-                spaceBetween:35,
-                watchOverflow: false,
-            })
-            // tech slider
-            const techSwiper = new Swiper('.main-tech__slider', {
-                effect:'fade',
-                loop:true,
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: false
-                },
-                on : {
-                    slideChange: function () {
-                        $('.main-tech__indicator > li').eq(this.realIndex).addClass('active').siblings().removeClass('active');
-                    },
-                }
-            })
-            techSwiper.autoplay.stop();
-            /* FOOTER */
-            $('.btn-top').on('click', function() {
-                $('html, body').animate({scrollTop:0}, 1500, "linear").delay(1500);
-                return false;
-            });
+                    return item;
+                });
+                $('.splittext').eq(i).html(cateText);
+            }
         })
     </script>
 </body>

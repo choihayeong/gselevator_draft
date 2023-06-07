@@ -19,7 +19,46 @@
     <div class="wrap">
         <!-- HEADER -->
         <header id="header" class="header">
-            HEADER
+            <div class="header__wrap">
+                <div class="header__inner">
+                    <div class="gnb gnb--left">
+                        <button type="button" class="btn-menu">
+                            <span class="btn-menu__line btn-menu__line--top"></span>
+                            <span class="btn-menu__line btn-menu__line--bottom"></span>
+                        </button>
+                        <ul class="gnb__left">
+                            <li class="active">
+                                <a href="./sub02.html">대표 프로젝트</a>
+                            </li>
+                            <li>
+                                제품소개
+                            </li>
+                            <li>
+                                서비스
+                            </li>
+                            <li>
+                                혁신기술
+                            </li>
+                        </ul>
+                    </div>
+                    <h1 class="logo" onclick="location.href='./index.html'">
+                        <img src="./assets/images/logo.svg" alt="">
+                    </h1>
+                    <div class="gnb gnb--right">
+                        <ul class="gnb__right">
+                            <li>
+                                <a href="./sub01.html">기업소개</a>
+                            </li>
+                            <li>
+                                인재경영
+                            </li>
+                            <li>
+                                고객지원
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </header>
         <!-- // -->
         <div class="container fullpage" style="transition:all 0.7s ease-out">
@@ -36,25 +75,97 @@
             </section>
             <section class="subsection subsection--full">
                 <article class="subsection__counter">
-                    <img src="./assets/images/sub/sub15.jpg" alt="">
+                    <div class="c-contents">
+                        <img src="./assets/images/sub/sub15.jpg" alt="">
+                        <ul class="counter" style="display:none">
+                            <li>
+                                <strong class="number" data-from="0" data-to="105"
+                                data-speed="1800" data-refresh-interval="50"></strong> m/min
+                                <div class="counter__contents">최대 운행속도</div>
+                            </li>
+                            <li>
+                                <strong class="number" data-from="0" data-to="1275"
+                                data-speed="1800" data-refresh-interval="50"></strong> kg
+                                <div class="counter__contents">최대용량</div>
+                            </li>
+                            <li>
+                                <strong class="number" data-from="0" data-to="17"
+                                data-speed="1800" data-refresh-interval="50"></strong> 인승
+                                <div class="counter__contents">최대 탑승인원</div>
+                            </li>
+                            <li>
+                                <strong>MRL</strong>
+                                <div class="counter__contents">기계실 없는 엘리베이터</div>
+                            </li>
+                        </ul>
+                    </div>
                 </article>
             </section>
-            <section class="subsection subsection--full subsection--bottom" style="background-color: #ccc;">
+            <section class="subsection subsection--full subsection--bottom" style="background-color:#fff">
                 <article class="subsection__contents">
-                    <div class="introduce">
-                        <img src="./assets/images/sub/sub16.jpg" alt="">
+                    <div class="row">
+                        <div class="introduce">
+                            <div class="introduce__item introduce__item--first">
+                                <img src="./assets/images/sub/sub17.jpg" alt="">
+                            </div>
+                            <div class="introduce__item">
+                                <img src="./assets/images/sub/sub18.jpg" alt="">
+                            </div>
+                            <div class="introduce__item">
+                                <img src="./assets/images/sub/sub19.jpg" alt="">
+                            </div>
+                            <div class="solution">
+                                <ul class="solution__indicator">
+                                    <li>
+                                        <div class="solution__bar"></div>
+                                        <div class="solution__item">거주아파트</div>
+                                    </li>
+                                    <li>
+                                        <div class="solution__bar"></div>
+                                        <div class="solution__item">오피스텔</div>
+                                        <div class="solution__hover">
+                                            <img src="./assets/images/sub/sub27.jpg" alt="">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="solution__bar"></div>
+                                        <div class="solution__item">고층빌딩</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </article>
                 <article class="subsection__banner">
                     <div class="row">
                         <ul class="bannerlist">
-                            <li></li>
+                            <li>
+                                <img src="./assets/images/sub/sub21.png" alt="">
+                            </li>
+                            <li>
+                                <img src="./assets/images/sub/sub22.png" alt="">
+                            </li>
+                            <li>
+                                <img src="./assets/images/sub/sub23.png" alt="">
+                            </li>
+                            <li>
+                                <img src="./assets/images/sub/sub24.png" alt="">
+                            </li>
                         </ul>
                     </div>
                 </article>
                 <!-- FOOTER -->
                 <footer id="footer" class="footer">
                     <img src="./assets/images/footer.jpg" alt="">
+                    <ul class="footer__menu">
+                        <li>회사소개서</li>
+                        <li>
+                            <a href="./sub01.html">엘리베이터</a>
+                        </li>
+                        <li>
+                            <a href="./sub02.html">주요프로젝트</a>
+                        </li>
+                    </ul>
                     <button class="btn-top">
                         <span>TOP</span>
                     </button>
@@ -64,11 +175,11 @@
         </div>
     </div>
     <script>
-        AOS.init();
         history.scrollRestoration = "manual";
         $(function() {
             var $body = $('body'),
                 $wrap = $('#wrap'),
+                $header = $('.header'),
                 currentIndex = 0,
                 isMove = false,
                 isText = false,
@@ -84,12 +195,13 @@
                                 isMove = true;
                                 currentIndex++;
                                 this.setTransitionSection();
+                                $header.addClass('nav-up');
                             }
                         } else {
                             if (!this.isFirst()) {
                                 isMove = true;
                                 currentIndex--;
-                                console.log(currentIndex);
+                                $header.removeClass('nav-up');
                                 if (currentIndex == 1) {
                                     this.subsectionBottomTransition();
                                 } else {
@@ -146,7 +258,6 @@
                 },
                 init: function() {
                     $('.subsection').eq(currentIndex).addClass('active');
-                    // $(window).bind('load',intro.isOverFlow);
                 }
             }
             intro.bind();
