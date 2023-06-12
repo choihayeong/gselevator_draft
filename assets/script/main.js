@@ -60,17 +60,22 @@ $(function() {
     const techSwiper = new Swiper('.main-tech__slider', {
         effect:'fade',
         loop:true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false
-        },
+        // autoplay: {
+        //     delay: 3000,
+        //     disableOnInteraction: false
+        // },
         on : {
             slideChange: function () {
                 $('.main-tech__indicator > li').eq(this.realIndex).addClass('active').siblings().removeClass('active');
             },
+            init: function () {
+                if ($('.main-tech').hasClass('active')) {
+                    console.log('once');
+                }
+            }
         }
     })
-    techSwiper.autoplay.stop();
+    // techSwiper.autoplay.stop();
     $('.main-tech__indicator > li').click(function(){
         var index = $(this).index();
         $(this).addClass('active').siblings().removeClass('active');

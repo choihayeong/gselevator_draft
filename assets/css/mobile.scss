@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import "_font";
+@import "_variables";
 /* reset */
 * {margin:0;padding:0;vertical-align:top;box-sizing:border-box}
 ul,li,ol {list-style:none}
@@ -18,3 +20,47 @@ body {font-family:'Spoqa Han Sans Neo',sans-serif;font-size:0}
 .mobile {position:absolute;top:50%;left:50%;width:436px;height:878px;transform:translate(-50%, -50%);background:url(../images/m/mockup.png) no-repeat center top;background-size:contain}
 .mo-content {overflow-y:scroll;overflow-x:hidden;position:absolute;top:107px;left:31px;width:375px;height:666px;color:#fff;background:#101111}
 .mobox {position:relative;font-size:16px;text-align:center;transition:background-color 0.4s ease}
+
+
+// top
+
+.btn-top {
+    position:absolute;
+    bottom:97px;
+    right:20px;
+    width:39px;
+    height:39px;
+    border:1.5px solid rgba(255, 255, 255, 0.3);
+    border-radius:3.25px;
+    transition:all 0.5s;
+}
+.btn-top span {
+    position:relative;
+    display:inline-block;
+    padding-top:11px;
+    color:rgba(255, 255, 255, 0.3);
+    font-size:10px;
+    font-family:'Oswald';
+    font-weight:600;
+    transition:all 0.5s;
+}
+.btn-top span::before {
+    content:'';
+    position:absolute;
+    top:0;
+    left:50%;
+    width:7px;
+    height:4px;
+    margin-left:-3.5px;
+    background:url(../images/icon_arrow-top.svg);
+    transition:all 0.5s;
+}
+.btn-top:hover {
+    border-color:#A5684C;
+}
+.btn-top:hover span {
+    color:#A5684C;
+}
+.btn-top:hover span::before {
+    background:url(../images/icon_arrow-top-on.svg);
+}

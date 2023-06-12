@@ -18,6 +18,9 @@
         <div class="mo-content">
             <div class="mobox">
                 <img src="./assets/images/m/Mobile.jpg" alt="">
+                <button class="btn-top">
+                    <span>TOP</span>
+                </button>
             </div>
         </div>
     </div>
@@ -30,6 +33,12 @@
             $(window).on('load', function () {
                 AOS.refresh();
             });
+
+            function topClickEvent() {
+                $('.mo-content').stop().animate({scrollTop:0}, 1000, "linear");
+                return false;
+            }
+            $('.btn-top').on('click', topClickEvent);
         });
     </script>
 </body>

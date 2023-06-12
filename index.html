@@ -194,6 +194,9 @@
                                     <div class="swiper-slide">
                                         <img src="./assets/images/img05.jpg" alt="">
                                     </div>
+                                    <div class="swiper-slide">
+                                        <img src="./assets/images/img06.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -279,7 +282,7 @@
             </section>
             <!-- // -->
             <!-- TECH -->
-            <section class="section main-tech" data-color="default">
+            <section class="section main-tech" data-color="default" data-index="0">
                 <h2 style="text-align:center">
                     <img src="./assets/images/text04.png" alt="">
                 </h2>
@@ -366,7 +369,7 @@
                                     </figure>
                                 </div>
                                 <div class="main-bottom__contents">
-                                    <img src="./assets/images/text06.png" alt="">
+                                    <img src="./assets/images/text07.png" alt="">
                                 </div>
                             </div>
                         </li>
@@ -423,7 +426,7 @@
 
                         if (currentSection === 1) {
                             let scRatio = (scTop - sectionsTop[i]) / sectionsTop[i] / 2;
-                            console.log(scRatio * 100);
+                            // console.log(scRatio * 100);
                             $('#ev01 .floor__inner').css('transform', `translateY(-${scRatio * 100}%)`);
                             $('#ev01 .floor__bg-inner').css('opacity', `1`);
                             $('#ev01 .floor__bg-inner').css('background-position-y', `${scRatio * 100}%`);
@@ -432,7 +435,7 @@
                         }
                         if (currentSection === 2) {
                             let scRatio = (scTop - sectionsTop[i]) / sectionsTop[i] / 2;
-                            console.log(scRatio * 100);
+                            // console.log(scRatio * 100);
                             $('#ev02 .floor__inner').css('transform', `translateY(-${scRatio * 100}%)`);
                             $('#ev01 .floor__bg-inner').css('opacity', `0`);
                             $('#ev02 .floor__bg-inner').css('opacity', `1`);
@@ -441,7 +444,7 @@
                         }
                         if (currentSection === 3) {
                             let scRatio = (scTop - sectionsTop[i]) / sectionsTop[i] / 2;
-                            console.log(scRatio * 100);
+                            // console.log(scRatio * 100);
                             $('#ev03 .floor__inner').css('transform', `translateY(-${scRatio * 100}%)`);
                             $('#ev01 .floor__bg-inner').css('opacity', `0`);
                             $('#ev02 .floor__bg-inner').css('opacity', `0`);
@@ -465,16 +468,16 @@
                 } else {
                     $mainNav.removeClass('fixed');
                 }
-                
                 if (activeSection.data('color') === 'white') {
                     $wrap.addClass('white');
                 } else {
                     $wrap.removeClass('white');
                 }
-                // tech
-                if ($('.main-tech').hasClass('active')) {
+                let onceFirstIndicator = setTimeout(function() {
                     $('.main-tech__indicator > li').eq(0).addClass('active')
-                    // techSwiper.autoplay.start(3000);
+                },100)
+                if ($('.main-tech').hasClass('active')) {
+                    clearTimeout(onceFirstIndicator);   
                 }
             });
 
