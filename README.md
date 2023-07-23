@@ -1,2 +1,4 @@
 # gselevator_draft
-gselevator_draft
+- GS 엘리베이터 (type B) 시안 작업
+- 작업기간 : 2023.05.30 ~ 2023.06.08 (7 days)
+- 디자이너 1명, 퍼블리셔 1명 (소속: 비닷크리에이티브)
